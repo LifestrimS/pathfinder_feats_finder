@@ -1,0 +1,52 @@
+[
+    {
+        "Name": "Acrobatic Spellcaster",
+        "Prerequisite": "Combat Casting, Skill Focus (Acrobatics)",
+        "Description": "Avoid attacks of opportunity from casting with Acrobatics "
+    },
+    {
+        "Name": "Adder Strike",
+        "Prerequisite": "Agile Maneuvers",
+        "Description": "May apply contact poison to unarmed strikes "
+    },
+    {
+        "Name": "Advanced Armor Training",
+        "Prerequisite": "Armor training class feature, fighter level 3rd.",
+        "Description": "Gain an advanced armor training option "
+    },
+    {
+        "Name": "Advanced Defensive Combat Training",
+        "Prerequisite": "Agile Maneuvers, Bellflower Network 10 TPA, Aerial Roll",
+        "Description": "Gain a +4 bonus to your CMD "
+    },
+    {
+        "Name": "Advanced Weapon Training",
+        "Prerequisite": "Fighter level 5th, weapon training class feature",
+        "Description": "Gain an advanced weapon training option "
+    },
+    {
+        "Name": "Aerial Roll",
+        "Prerequisite": "Fly 10 ranks",
+        "Description": "Dodge attacks by making with a Fly check "
+    },
+    {
+        "Name": "Agile Maiden",
+        "Prerequisite": "Str 13; Dex 13; Endurance or armor training class feature; proficiency with heavy armor",
+        "Description": "Treat Gray Maiden plate as medium or heavy armor for class features "
+    },
+    {
+        "Name": "Agile Maneuvers",
+        "Prerequisite": "—",
+        "Description": "Use your Dex bonus when calculating your CMB "
+    },
+    {
+        "Name": "Alchemical Strike",
+        "Prerequisite": "Throw Anything, base attack bonus +6",
+        "Description": "Increase the save DC of thrown alchemical items "
+    },
+    {
+        "Name": "Aldori Artistry",
+        "Prerequisite": "Exotic Weapon Proficiency (Aldori dueling sword), Weapon Finesse, base attack bonus +2, Aerial Roll",
+        "Description": "Gain a+2 bonus on a combat maneuver when using an Aldori dueling sword "
+    }
+]
