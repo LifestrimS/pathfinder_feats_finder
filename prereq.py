@@ -1,5 +1,5 @@
 class Prereq:
-   def __init__(self, isFeat: bool, name: str, featId: int):
+   def __init__(self, isFeat: bool, name: str, featId: str):
       self.isFeat = isFeat 
       self.name = name 
       self.featId = featId 

@@ -7,8 +7,8 @@ from prereq import Prereq
 def main():
     print('START')
 
-    #with open('test_feat_table.json', encoding='utf8') as user_file:
-    with open('feats.json', encoding='utf8') as user_file:
+    with open('test_feat_table.json', encoding='utf8') as user_file:
+    # with open('feats.json', encoding='utf8') as user_file:
         content = user_file.read()
 
     parsed_json = json.loads(content)
@@ -37,10 +37,14 @@ def main():
                 print(f' - {pr}')
         print('\n')
 
-
-
     print('============================================')
-    print('END')
+    print('END\n\n')
+
+    featId = input("Enter featId: ")
+
+    while (featId != 'Exit') & (featId != 'exit'):
+        findFeatByIDd(featId=int(featId), featList=listFeats)
+        featId = input("Enter featId: ")
 
 
 def getPrerequisite(prer: str):
@@ -65,15 +69,25 @@ def processPrereq(featList: list[Feat], prer: Prereq):
     for el in prer:
         
         if el.name in featNameList:
-            featId = [x for x in featList if x.name == el.name]
+            feat = [x for x in featList if x.name == el.name]
             
             print('\n')
-            readyPrer.append(Prereq(isFeat = True, name = el.name, featId = featId[0].id()))
+            readyPrer.append(Prereq(isFeat = True, name = el.name, featId = feat[0].id))
         else:
             readyPrer.append(Prereq(False, el.name, None))
 
     
     return readyPrer
+
+#Prerequisite list have feats id, should can find them
+def findFeatByIDd(featId, featList: list):
+
+    feat = [x for x in featList if x.id == featId]
+    if feat != []:
+        print (feat[0].name)
+    else:
+        print ('Found nothing')
+    # return feat
 
 
 if __name__=="__main__":
