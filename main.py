@@ -7,8 +7,8 @@ from prereq import Prereq
 def main():
     print('START')
 
-    with open('test_feat_table.json', encoding='utf8') as user_file:
-    # with open('feats.json', encoding='utf8') as user_file:
+    # with open('test_feat_table.json', encoding='utf8') as user_file:
+    with open('feats.json', encoding='utf8') as user_file:
         content = user_file.read()
 
     parsed_json = json.loads(content)
@@ -30,20 +30,23 @@ def main():
 
     for el in listFeats:
         print(el)
-        
+        print('PREREQUISITE:')
         if (el.prerequisite != []):
-            print('PREREQUISITE:')
+            # print('PREREQUISITE:')
             for pr in el.prerequisite:
-                print(f' - {pr}')
+                print(f'{pr}')
+        else:
+            print('-')
         print('\n')
 
     print('============================================')
     print('END\n\n')
 
     featId = input("Enter featId: ")
+    
 
     while (featId != 'Exit') & (featId != 'exit'):
-        findFeatByIDd(featId=int(featId), featList=listFeats)
+        displayInsideFeats(findFeatByIDd(featId = int(featId), featList = listFeats), featList = listFeats)
         featId = input("Enter featId: ")
 
 
@@ -80,14 +83,36 @@ def processPrereq(featList: list[Feat], prer: Prereq):
     return readyPrer
 
 #Prerequisite list have feats id, should can find them
-def findFeatByIDd(featId, featList: list):
+def findFeatByIDd(featId, featList: list)-> Feat:
 
     feat = [x for x in featList if x.id == featId]
     if feat != []:
-        print (feat[0].name)
+        return feat[0]
     else:
-        print ('Found nothing')
-    # return feat
+        print ('\nFound nothing')
+
+def displayInsideFeats(feat: Feat, featList: list, offset=''):
+    offset = offset
+    # print(f'\n{offset}{feat}\n')
+    print('\n')
+    printFeat(feat = feat, offset = offset)
+
+    for el in feat.prerequisite:
+        offset = offset + ' '
+        if (el.isFeat):
+            displayInsideFeats(feat = findFeatByIDd(el.featId, featList = featList), featList = featList, offset = offset)
+        # else:
+        #     print(f'{el}')
+
+def printFeat(feat: Feat, offset: str):
+    print(f"{offset}NAME: {feat.name}\n{offset}ID: {feat.id}\n{offset}DESCRIPTION: {feat.description}")
+    print(f'{offset}PREREQUISITE:')
+    if (feat.prerequisite != []):
+        # print('PREREQUISITE:')
+        for pr in feat.prerequisite:
+            print(f'{offset}{pr}')
+    else:
+        print(f'{offset}-')
 
 
 if __name__=="__main__":
